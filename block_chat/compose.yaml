@@ -1,0 +1,143 @@
+services:
+
+  # node0 is the bootstrap node
+  node0:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/Dockerfile.node
+    # name the created image "block_chat_node" so that the rest of the nodeX
+    # services can use it as well, significantly reducing the build time
+    # make sure the other nodeX services depend on this one
+    image: block_chat_node
+    # this prevents trying to pull "block_chat_node" from the docker hub
+    pull_policy: never
+    expose:
+      - "27736/tcp"
+      - "27737/tcp"
+    environment:
+      - BLOCK_CHAT_BOOTSTRAP_PEER_SOCKET=node0:27736
+      # change this if you ever add/remove nodeX containers
+      - BLOCK_CHAT_NETWORK_SIZE=5
+    ports:
+      - "8080:27737"
+
+  node1:
+    image: block_chat_node
+    pull_policy: never
+    expose:
+      - "27736/tcp"
+      - "27737/tcp"
+    environment:
+      - BLOCK_CHAT_BOOTSTRAP_PEER_SOCKET=node0:27736
+    ports:
+      - "8081:27737"
+    depends_on:
+      - node0
+
+  node2:
+    image: block_chat_node
+    pull_policy: never
+    expose:
+      - "27736/tcp"
+      - "27737/tcp"
+    environment:
+      - BLOCK_CHAT_BOOTSTRAP_PEER_SOCKET=node0:27736
+    ports:
+      - "8082:27737"
+    depends_on:
+      - node0
+
+  node3:
+    image: block_chat_node
+    pull_policy: never
+    expose:
+      - "27736/tcp"
+      - "27737/tcp"
+    environment:
+      - BLOCK_CHAT_BOOTSTRAP_PEER_SOCKET=node0:27736
+    ports:
+      - "8083:27737"
+    depends_on:
+      - node0
+
+  node4:
+    image: block_chat_node
+    pull_policy: never
+    expose:
+      - "27736/tcp"
+      - "27737/tcp"
+    environment:
+      - BLOCK_CHAT_BOOTSTRAP_PEER_SOCKET=node0:27736
+    ports:
+      - "8084:27737"
+    depends_on:
+      - node0
+
+  # each helperX service feeds input to the corresponding nodeX service
+  helper0:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/Dockerfile.helper
+    # build once and reuse this image as well
+    image: block_chat_helper
+    pull_policy: never
+    expose:
+      - "27737/tcp"
+    environment:
+      - DAEMON_SOCKET=node0:27737
+      - FIXED_STAKING=10
+      - INPUT_FOLDER=test_inputs/5nodes
+    depends_on:
+      - node0
+
+  helper1:
+    image: block_chat_helper
+    pull_policy: never
+    expose:
+      - "27737/tcp"
+    environment:
+      - DAEMON_SOCKET=node1:27737
+      - FIXED_STAKING=10
+      - INPUT_FOLDER=test_inputs/5nodes
+    depends_on:
+      - helper0
+      - node1
+
+  helper2:
+    image: block_chat_helper
+    pull_policy: never
+    expose:
+      - "27737/tcp"
+    environment:
+      - DAEMON_SOCKET=node2:27737
+      - FIXED_STAKING=10
+      - INPUT_FOLDER=test_inputs/5nodes
+    depends_on:
+      - helper0
+      - node2
+
+  helper3:
+    image: block_chat_helper
+    pull_policy: never
+    expose:
+      - "27737/tcp"
+    environment:
+      - DAEMON_SOCKET=node3:27737
+      - FIXED_STAKING=10
+      - INPUT_FOLDER=test_inputs/5nodes
+    depends_on:
+      - helper0
+      - node3
+
+  helper4:
+    image: block_chat_helper
+    pull_policy: never
+    expose:
+      - "27737/tcp"
+    environment:
+      - DAEMON_SOCKET=node4:27737
+      - FIXED_STAKING=10
+      - INPUT_FOLDER=test_inputs/5nodes
+    depends_on:
+      - helper0
+      - node4
