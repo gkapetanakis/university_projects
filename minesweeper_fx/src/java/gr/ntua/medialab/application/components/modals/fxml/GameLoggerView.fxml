@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<TableView fx:id="loggerDisplay" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columns>
+    <TableColumn fx:id="gamesColumn" sortable="false" />
+    <TableColumn fx:id="minesColumn" sortable="false" text="Mines" />
+      <TableColumn fx:id="clicksColumn" sortable="false" text="Clicks" />
+      <TableColumn fx:id="timeColumn" sortable="false" text="Time" />
+      <TableColumn fx:id="winnerColumn" sortable="false" text="Winner" />
+  </columns>
+   <columnResizePolicy>
+      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+   </columnResizePolicy>
+</TableView>

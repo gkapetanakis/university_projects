@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <GridPane fx:id="infoBar" VBox.vgrow="NEVER">
+      <columnConstraints>
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
+         <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
+      </rowConstraints>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Mines">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="8.0" right="2.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="totalMinesDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+      <Separator orientation="VERTICAL" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
+         <padding>
+            <Insets bottom="5.0" top="5.0"/>
+         </padding>
+      </Separator>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marked Cells" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="markedCellsDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.columnIndex="2"
+            GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+      <Separator orientation="VERTICAL" GridPane.columnIndex="3" GridPane.rowSpan="2147483647">
+         <padding>
+            <Insets bottom="5.0" top="5.0"/>
+         </padding>
+      </Separator>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Time" GridPane.columnIndex="4">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="2.0" right="8.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="remainingTimeDisplay" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.columnIndex="4"
+            GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </GridPane.margin>
+      </Text>
+   </GridPane>
+   <Separator prefWidth="200.0">
+      <opaqueInsets>
+         <Insets/>
+      </opaqueInsets>
+      <padding>
+         <Insets left="10.0" right="10.0"/>
+      </padding>
+   </Separator>
+   <StackPane>
+      <Group fx:id="minefieldParent"/>
+      <Text fx:id="gameOverView" strokeType="OUTSIDE"/>
+   </StackPane>
+</VBox>

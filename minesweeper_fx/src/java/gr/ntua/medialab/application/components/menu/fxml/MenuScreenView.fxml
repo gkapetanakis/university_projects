@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <Button fx:id="createButton" mnemonicParsing="false" prefWidth="60.0" text="Create">
+      <font>
+         <Font size="14.0"/>
+      </font>
+      <VBox.margin>
+         <Insets bottom="5.0" left="50.0" right="50.0" top="10.0"/>
+      </VBox.margin>
+   </Button>
+   <Button fx:id="loadButton" mnemonicParsing="false" prefWidth="60.0" text="Load">
+      <font>
+         <Font size="14.0"/>
+      </font>
+      <VBox.margin>
+         <Insets bottom="5.0" left="50.0" right="50.0" top="5.0"/>
+      </VBox.margin>
+   </Button>
+   <Button fx:id="startButton" mnemonicParsing="false" prefWidth="60.0" text="Start">
+      <font>
+         <Font size="14.0"/>
+      </font>
+      <VBox.margin>
+         <Insets bottom="5.0" left="50.0" right="50.0" top="5.0"/>
+      </VBox.margin>
+   </Button>
+   <Button fx:id="exitButton" mnemonicParsing="false" prefWidth="60.0" text="Exit">
+      <font>
+         <Font size="14.0"/>
+      </font>
+      <VBox.margin>
+         <Insets bottom="10.0" left="50.0" right="50.0" top="5.0"/>
+      </VBox.margin>
+   </Button>
+</VBox>

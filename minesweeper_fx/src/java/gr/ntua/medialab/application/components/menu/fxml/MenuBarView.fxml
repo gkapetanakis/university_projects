@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<MenuBar fx:id="menuBar" useSystemMenuBar="true" xmlns="http://javafx.com/javafx/19"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <Menu mnemonicParsing="false" text="Application">
+        <MenuItem fx:id="createButton" mnemonicParsing="false" text="Create"/>
+        <MenuItem fx:id="loadButton" mnemonicParsing="false" text="Load"/>
+        <MenuItem fx:id="startButton" mnemonicParsing="false" text="Start"/>
+        <MenuItem fx:id="exitButton" mnemonicParsing="false" text="Exit"/>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Details">
+        <MenuItem fx:id="roundsButton" mnemonicParsing="false" text="Rounds"/>
+        <MenuItem fx:id="solutionButton" mnemonicParsing="false" text="Solution"/>
+    </Menu>
+</MenuBar>
